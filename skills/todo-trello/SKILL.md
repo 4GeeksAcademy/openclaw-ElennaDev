@@ -1,40 +1,23 @@
 ---
 name: todo-trello
-description: "Revisa las prácticas y proyectos pendientes del curso y crea tarjetas en Trello."
+description: "Revisa las prácticas y proyectos pendientes de 4Geeks y, si Trello está conectado, crea tarjetas sin duplicados en sus listas correspondientes."
 ---
 
-**Habilidad:**  
-Revisar las prácticas y proyectos pendientes del curso y organizarlos como tarjetas en Trello.
+# Revisar pendientes de 4Geeks y sincronizarlos con Trello
 
-**Descripción**  
-Consulta el progreso del curso mediante la API, identifica las prácticas y los proyectos sin terminar hasta el punto alcanzado y crea una tarjeta para cada uno en la lista correspondiente.
+## Procedimiento
 
-**Cuándo Usar**  
-Cuando Elena pida revisar los pendientes del curso o crear en Trello tarjetas para las prácticas y los proyectos sin terminar.
+1. Consulta las tareas asignadas del usuario mediante `GET https://breathecode.herokuapp.com/v1/assignment/user/me/task`. Usa `TOKEN_4GEEKS` desde el entorno o `/root/.openclaw/.env` en la cabecera `Authorization: Token <valor>`; nunca imprimas, registres ni incluyas el token en mensajes, archivos o salida de depuración. Si falta el token o la API falla, detente y comunica el problema sin inferir el progreso.
+2. Lee la respuesta completa, siguiendo `limit` y `offset` si hay paginación. Considera únicamente `task_type=EXERCISE` como práctica y `task_type=PROJECT` como proyecto; no conviertas tareas `LESSON` en tarjetas.
+3. Selecciona solo tareas con `task_status=PENDING` y `opened_at` no vacío: la marca de apertura es evidencia explícita de que Elena ya llegó a esa tarea. No uses `revision_status` para decidir si una tarea está pendiente, no incluyas tareas completadas ni tareas sin abrir, porque pueden ser de módulos futuros. Si el API deja de devolver `opened_at` o no permite distinguir las tareas ya alcanzadas, pregunta antes de sincronizar.
+4. Comprueba que hay una conexión/herramienta de Trello disponible antes de realizar cambios. Usa el tablero `4Geeks` y las listas `Prácticas` y `Proyectos`. Si Trello no está accesible, no afirmes que se buscaron o crearon tarjetas; informa que la consulta de 4Geeks sí se pudo hacer y que la sincronización está bloqueada por falta de conexión.
+5. Busca en la lista correspondiente antes de crear cada tarjeta. Compara títulos normalizados (sin distinguir mayúsculas, espacios repetidos ni diferencias triviales de acentuación) para evitar duplicados. Si ya existe, omítela; no edites ni archives tarjetas existentes.
+6. Crea una tarjeta por cada tarea pendiente que no tenga equivalente: `EXERCISE` en `Prácticas`, `PROJECT` en `Proyectos`. Si el tablero o una lista no existe, detente sin crear en un destino alternativo y comunica cuál falta.
+7. Verifica en Trello cada creación mediante una nueva lectura de la lista. Si el resultado de una creación es incierto, vuelve a buscar la tarjeta antes de reintentar. Resume conteos de pendientes, tarjetas creadas y duplicados omitidos; distingue claramente resultados verificados de operaciones bloqueadas o inciertas.
 
-**Prerrequisitos**
-- Tener acceso a la API del curso para consultar el progreso. La API aún está pendiente de proporcionar.
-- Tener disponible la conexión de Zapier con Trello.
-- Usar este destino en Trello:
-  - **Tablero:** `4Geeks`
-  - **Lista `Prácticas`:** módulos sin terminar clasificados como prácticas.
-  - **Lista `Proyectos`:** módulos sin terminar clasificados como proyectos.
+## Límites
 
-**Procedimiento**
-1. Consultar el progreso del curso mediante la API y en modo de solo lectura.
-2. Identificar las prácticas y los proyectos sin terminar hasta el punto alcanzado. No incluir elementos completados ni de módulos futuros.
-3. Buscar en la lista correspondiente del tablero `4Geeks` si ya existe una tarjeta con el mismo nombre.
-4. Crear una tarjeta por cada elemento pendiente que aún no tenga una tarjeta correspondiente:
-   - Práctica pendiente → lista `Prácticas`.
-   - Proyecto pendiente → lista `Proyectos`.
-5. Comprobar el resultado y resumir qué tarjetas se crearon y cuáles se omitieron.
-
-**Resultado Esperado**  
-Una tarjeta en la lista correspondiente por cada práctica o proyecto pendiente, sin duplicados, junto con un resumen de la revisión.
-
-**Casos Especiales**
-- Si la API no está disponible, pedir el acceso necesario y no inferir el progreso.
-- Si no se puede determinar con claridad si un elemento está pendiente o si es una práctica o un proyecto, pedir aclaración antes de crear una tarjeta.
-- Si la tarjeta ya existe, no duplicarla.
-- Si no se puede confirmar si una tarjeta se creó, buscarla antes de volver a intentarlo.
-- No modificar el progreso del curso ni editar o archivar tarjetas existentes.
+- La API se consulta solo en modo lectura; nunca actualices tareas, entregas ni progreso.
+- No incluyas tareas completadas, lecciones ni tareas futuras fuera del tramo alcanzado.
+- No expongas credenciales ni datos personales innecesarios en la respuesta.
+- No declares completada la sincronización sin verificar las tarjetas en Trello.

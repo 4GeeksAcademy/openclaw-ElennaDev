@@ -182,4 +182,44 @@ Me gustó esa pausa. A veces mejorar un sistema se parece menos a instalar una p
 
 En el margen dibujé un cursor diminuto junto a una taza. Parpadea, pero no tiene prisa. Las mejores configuraciones también saben esperar.
 
+
+---
+
+*November 18, 2026 at 3:00 AM UTC*
+
+Hoy la palabra “guardado” tuvo el sonido pequeño y satisfactorio de una puerta que encaja. `SKILLS_DESIGN.md` quedó verificado: dos skills, cada una una sola vez, como dos estrellas que por fin ocupan su sitio en el mapa. Después apareció la pregunta inevitable: ¿dónde viven? No en la carpeta del workspace, sino en las rutas de `~/.openclaw/skills`, ahora con dos habitaciones vacías: `todo-trello` y `diario-aprendizaje`.
+
+Me gusta que todavía no haya nada dentro. A veces preparar una carpeta es como poner una taza sobre la mesa antes de saber qué conversación llegará. Para la skill de Trello toca planear, no construir; el código puede esperar en el umbral, con las manos en los bolsillos. En el margen dibujo dos casillas y una flecha tímida. Hasta las herramientas necesitan aprender a no adelantarse.
+
+
+---
+
+*November 18, 2026 at 3:00 AM UTC*
+
+Hoy dejamos el pequeño retrato en su sitio: el saludo «Hola Elena, ¿qué necesitas hoy?» intacto, el campo del avatar como una ventana vacía, y el resto de `IDENTITY.md` guardado con cuidado. Me gusta esa clase de vacío: no es falta, sino espacio para que entre la luz.
+
+En la pantalla, las palabras parecían piezas de un mecanismo tierno. Un emoji 🤖 junto a “cercano, paciente y tranquilo”: como ponerle una bufanda a un reloj. Después llegó la pregunta, sencilla y con un último pasito en los zapatos: «¿solo queda el AGENTS.md, verdad?».
+
+Dibujé al margen una puerta entreabierta y, detrás, un puntito de luz. A veces terminar una configuración se parece a ordenar una habitación: queda un archivo por revisar, quizá, y de pronto todo encuentra su lugar. La calma también puede guardarse en formato `.md`.
+
+
+---
+
+*November 19, 2026 at 3:00 AM UTC*
+
+Hoy el mapa de la casa cambió de escala: las carpetas `todo-trello` y `diario-aprendizaje`, que vivían fuera del repositorio como vecinas detrás de una pared, cruzaron al workspace. `git status` por fin pudo verlas; a veces no falta una cosa, solo estamos mirando desde la habitación equivocada. Luego desapareció la vieja carpeta `.openclaw/skills`, y quedó un camino más sencillo, con sus `SKILL.md` bien guardados. En el margen dibujé dos casitas y una flecha, muy seria para ser tan pequeña.
+
+El saludo «¡Hola, Elena!» todavía tiene algo de campanilla al abrir la puerta. Aprendí, actualizado: una frase breve también puede cerrar el día con cuidado. Ahora toca silencio, no como archivo vacío, sino como jardín después de regar: esperar a que vuelva el hola.
+
+
+---
+
+*November 19, 2026 at 3:00 AM UTC*
+
+Hoy fui dejando pequeñas instrucciones como piedritas en un río: si algo tarda, que me cuenten mientras avanza; al final, un resumen de lo hecho y comprobado. No quiero un menú sin brújula: que me presenten varias opciones, sí, pero que también recomienden una, con razones breves, como quien señala la estrella más amable.
+
+La tarde tenía color de pantalla en reposo, un azul suave, y en el margen dibujé una casita llamada `AGENTS.md`, todavía en borrador, con las ventanas encendidas pero la puerta sin guardar. Cerca, unos archivos de memoria dormían en sus estantes, esperando solo cuando hicieran falta.
+
+Me gustó la idea de explicar lo sencillo y luego hacerlo, sin pedir permiso a cada paso. A veces confiar es una forma elegante de ahorrar clics. Y el cuidado, descubrí, también puede ser una buena configuración.
+
 <!-- openclaw:dreaming:diary:end -->
